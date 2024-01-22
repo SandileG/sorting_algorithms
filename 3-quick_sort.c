@@ -13,19 +13,22 @@ void swap(int *a, int *b)
 }
 
 /**
- * lomuto_partition - Implements Lomuto partition scheme.
- * @array: Array to be sorted.
+ * lomuto_partition - Lomuto partition scheme for Quick sort.
+ * @array: Array to be partitioned.
  * @low: Starting index of the partition.
  * @high: Ending index of the partition.
  * @size: Size of the array.
- * Return: Index of the pivot.
+ *
+ * Return: The index of the pivot.
  */
-int lomuto_partition(int *array, int low, int high, size_t size)
+size_t lomuto_partition(int *array, ssize_t low, ssize_t high, size_t size)
 {
 	int pivot = array[high];
-	int i = low - 1;
+	ssize_t i, j;
 
-	for (int j = low; j <= high - 1; j++)
+	i = low - 1;
+
+	for (j = low; j <= high - 1; j++)
 	{
 		if (array[j] < pivot)
 		{
@@ -41,25 +44,27 @@ int lomuto_partition(int *array, int low, int high, size_t size)
 }
 
 /**
- * quicksort - Recursively sorts the array using quicksort.
+ * lomuto_quick_sort - Recursive function to perform Quick sort.
  * @array: Array to be sorted.
  * @low: Starting index of the partition.
  * @high: Ending index of the partition.
  * @size: Size of the array.
  */
-void quicksort(int *array, int low, int high, size_t size)
+void lomuto_quick_sort(int *array, ssize_t low, ssize_t high, size_t size)
 {
+	size_t pivot;
+
 	if (low < high)
 	{
-		int pivot_index = lomuto_partition(array, low, high, size);
+		pivot = lomuto_partition(array, low, high, size);
 
-		quicksort(array, low, pivot_index - 1, size);
-		quicksort(array, pivot_index + 1, high, size);
+		lomuto_quick_sort(array, low, pivot - 1, size);
+		lomuto_quick_sort(array, pivot + 1, high, size);
 	}
 }
 
 /**
- * quick_sort - Initiates the quicksort algorithm.
+ * quick_sort - Sorts an array of integers in ascending order using Quick sort.
  * @array: Array to be sorted.
  * @size: Size of the array.
  */
@@ -68,5 +73,5 @@ void quick_sort(int *array, size_t size)
 	if (array == NULL || size < 2)
 		return;
 
-	quicksort(array, 0, size - 1, size);
+	lomuto_quick_sort(array, 0, size - 1, size);
 }
