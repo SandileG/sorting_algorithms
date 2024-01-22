@@ -33,5 +33,11 @@ void swap(int *a, int *b);
 size_t lomuto_partition(int *array, ssize_t low, ssize_t high, size_t size);
 void lomuto_quick_sort(int *array, ssize_t low, ssize_t high, size_t size);
 void quicksort(int *array, int low, int high, size_t size);
+void shell_sort(int *array, size_t size);
+void cocktail_sort_list(listint_t **list);
+void swap_nodes_forward(listint_t **list, listint_t **tail, listint_t **current);
+void swap_nodes_backward(listint_t **list, listint_t **tail, listint_t **current);
+void counting_sort(int *array, size_t size);
+
 
 #endif /* SORT_H */
