@@ -1,48 +1,34 @@
 #include "sort.h"
 
-/**
- * exchange_values - Swap two integers in an array.
- * @x: The first integer to exchange.
- * @y: The second integer to exchange.
- */
-void exchange_values(int *x, int *y)
+void interchange(int *a, int *b)
 {
-    int temporary;
-
-    temporary = *x;
-    *x = *y;
-    *y = temporary;
+	int temp = *a;
+	*a = *b;
+	*b = temp;
 }
 
-/**
- * knuth_shell_sort - Sort an array of integers in ascending
- *                   order using the shell sort algorithm.
- * @arr: An array of integers.
- * @len: The length of the array.
- *
- * Description: Utilizes the Knuth interval sequence.
- */
-void knuth_shell_sort(int *arr, size_t len)
+void shell_sort(int *array, size_t size)
 {
-    size_t interval, i, j;
+	size_t interval = 1;
+	size_t i, j;
 
-    if (arr == NULL || len < 2)
-        return;
+	if (array == NULL || size < 2)
+		return;
 
-    for (interval = 1; interval < (len / 3);)
-        interval = interval * 3 + 1;
+	while (interval < size / 3)
+		interval = interval * 3 + 1;
 
-    for (; interval >= 1; interval /= 3)
-    {
-        for (i = interval; i < len; i++)
-        {
-            j = i;
-            while (j >= interval && arr[j - interval] > arr[j])
-            {
-                exchange_values(arr + j, arr + (j - interval));
-                j -= interval;
-            }
-        }
-        print_array(arr, len);
-    }
+	for (; interval >= 1; interval /= 3)
+	{
+		for (i = interval; i < size; i++)
+		{
+			j = i;
+			while (j >= interval && array[j - interval] > array[j])
+			{
+				interchange(array + j, array + (j - interval));
+				j -= interval;
+			}
+		}
+		print_array(array, size);
+	}
 }
