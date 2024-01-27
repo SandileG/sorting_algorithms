@@ -1,5 +1,10 @@
 #include "sort.h"
 
+/**
+ * interchange - Swap the values of two integers.
+ * @a: Pointer to the first integer.
+ * @b: Pointer to the second integer.
+ */
 void interchange(int *a, int *b)
 {
 	int temp = *a;
@@ -7,6 +12,12 @@ void interchange(int *a, int *b)
 	*b = temp;
 }
 
+/**
+ * shell_sort - Sort an array of integers in ascending order
+ *		using the Shell sort algorithm with Knuth sequence.
+ * @array: Array of integers to be sorted.
+ * @size: Size of the array.
+ */
 void shell_sort(int *array, size_t size)
 {
 	size_t interval = 1;
