@@ -2,16 +2,19 @@
 
 /**
  * bubble_sort - Sorts an array of integers in ascending order
- *               using the Bubble sort algorithm.
+ *		using the Bubble sort algorithm.
  *
- * @array: The array to be sorted
- * @size: Number of elements in the array
+ * @array: The array to be sorted.
+ * @size: Number of elements in the array.
  */
 void bubble_sort(int *array, size_t size)
 {
 	size_t i, j;
 	int temp;
 	int swapped;
+
+	if (array == NULL || size == 0)
+		return;
 
 	for (i = 0; i < size - 1; i++)
 	{
@@ -29,7 +32,6 @@ void bubble_sort(int *array, size_t size)
 				print_array(array, size);
 			}
 		}
-
 		if (swapped == 0)
 			break;
 	}
