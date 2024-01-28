@@ -5,6 +5,16 @@
 #include <stdlib.h>
 
 /* Provided structures */
+/**
+ * struct listint_s - Doubly linked list node structure
+ * @n: Integer data stored in the node
+ * @prev: Pointer to the previous node in the list
+ * @next: Pointer to the next node in the list
+ *
+ * Description: This structure represents a node in a doubly linked list.
+ * It contains an integer data element, and pointers to the previous and
+ * next nodes in the list.
+ */
 typedef struct listint_s
 {
 	const int n;
