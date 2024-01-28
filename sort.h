@@ -28,6 +28,7 @@ void swap_nodes(listint_t **h, listint_t **n1, listint_t *n2);
 void selection_sort(int *array, size_t size);
 void quick_sort(int *array, size_t size);
 void print_list(const listint_t *list);
+int maximus(int *array, int size);
 
 /* Sorting algorithms */
 void bubble_sort(int *array, size_t size);
