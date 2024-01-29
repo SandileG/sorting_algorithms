@@ -3,6 +3,7 @@
 
 #include <stddef.h>
 #include <stdlib.h>
+#include <stdio.h>
 
 /* Provided structures */
 /**
@@ -29,6 +30,11 @@ void selection_sort(int *array, size_t size);
 void quick_sort(int *array, size_t size);
 void print_list(const listint_t *list);
 int maximus(int *array, int size);
+void swap_elements(int *a, int *b);
+void heapify(int *arr, size_t size, size_t base, size_t root);
+int find_maximum(int *array, size_t size);
+void counting_sort_radix(int *array, ssize_t size, int base,
+			int exp, int *buff);
 
 /* Sorting algorithms */
 void bubble_sort(int *array, size_t size);
@@ -44,5 +50,9 @@ void swap_nodes_forward(listint_t **list, listint_t **tail,
 void swap_nodes_backward(listint_t **list, listint_t **tail,
 			listint_t **current);
 void counting_sort(int *array, size_t size);
+void merge_sort(int *array, size_t size);
+void heap_sort(int *arr, size_t size);
+void radix_sort(int *array, size_t size);
+
 
 #endif /* SORT_H */
